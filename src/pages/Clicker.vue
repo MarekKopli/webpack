@@ -1,10 +1,11 @@
 <template>
     <div class="columns">
         <div class="column is-one-third has-text-centered">
+            <h1><b>Click to support Ukraine</b></h1>
             <b>{{clicks}} clicks</b>  
             <br>
             <b>{{cps}} clicks per second</b>  
-            <img @click="clickClick()" :class="{'click': clickClass}" src="https://pngimg.com/uploads/astronaut/astronaut_PNG9.png">   
+            <img @click="clickClick()" :class="{'click': clickClass}" src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/49/Flag_of_Ukraine.svg/800px-Flag_of_Ukraine.svg.png">   
         </div>
         <div class="column">
             <button @click="upgrade(0.1, 10)" class="button is-white" :disabled="clicks<10">Buy 0.1 cps for 10 clicks</button>     

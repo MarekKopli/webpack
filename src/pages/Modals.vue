@@ -4,7 +4,7 @@
 <img-modal v-show="active2" @close="active2=false" src="https://placebear.com/800/600"></img-modal>
 <button class="button is-white" @click="active2=true">Open Modal2</button>
 <modal v-show="active3" @close="active3=false">
-    <h1>TANN PANN ROOSTE VANN</h1>
+    <h1>TANN haiseb lol</h1>
 </modal>
 <button class="button is-white" @click="active3=true">Open Modal3</button>
   
