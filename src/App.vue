@@ -3,13 +3,13 @@
     <div class="container">
         <section class="section">
             <router-view></router-view>
-            </section>
-        </div>
+        </section>
+    </div>
 </template>
 
 <script>
 import Tabs from './components/Tabs.vue'
-export default { 
+export default {
     components: { Tabs },
     created(){
         console.log(this.$router.getRoutes());
@@ -17,7 +17,5 @@ export default {
 }
 </script>
 
-
 <style>
-
 </style>

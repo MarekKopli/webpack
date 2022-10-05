@@ -6,7 +6,7 @@
                 <input class="input" type="text" v-model="newItem" @keydown.enter="addItem()">
             </p>
             <p class="control">
-                <button class="button is-primary" @click="addItem()">Add</button> 
+                <button class="button is-white" @click="addItem()">Add</button> 
             </p>           
       </div>
       <div class="content">

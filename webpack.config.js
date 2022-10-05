@@ -4,8 +4,6 @@ const path = require('path');
 const glob = require('glob');
 const { VueLoaderPlugin } = require('vue-loader')
 
-
-
 module.exports = {
   entry: './src/index.js',
   output: {
@@ -31,7 +29,7 @@ module.exports = {
       },
       {
         test: /\.vue$/i,
-        use: ["vue-loader"],
+        loader: 'vue-loader'
       },
       {
         test: /\.twig$/,
