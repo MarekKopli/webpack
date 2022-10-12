@@ -1,9 +1,6 @@
 import './style.scss';
-
 import { createApp } from 'vue';
-
 import * as VueRouter from 'vue-router';
-
 import App from './App.vue';
 import ToDoList from './pages/ToDoList.vue';
 import Modals from './pages/Modals.vue';
@@ -14,22 +11,19 @@ import Corona from './pages/Corona.vue';
 import Country from './pages/Country.vue';
 
 const routes = [
-    { path: '/', component: Corona, name: 'Corona' }, 
-    { path: '/countries/:country', component: Country }, 
-    { path: '/rickandmorty', component: RickAndMorty, name: 'Rick and Morty' }, 
-    { path: '/chuck', component: Chuck, name: 'Chuck' },  
+    { path: '/', component: Corona, name: 'Corona' },
+    { path: '/countries/:country', component: Country },
+    { path: '/rickandmorty', component: RickAndMorty, name: 'Rick and Morty' },
+    { path: '/chuck', component: Chuck, name: 'Chuck' },
     { path: '/clicker', component: Clicker, name: 'Clicker' },
     { path: '/modal', component: Modals, name: 'Modal' },
     { path: '/todolist', component: ToDoList, name: 'To-Do List' },
 ]
-
-  const router = VueRouter.createRouter({
+const router = VueRouter.createRouter({
     // 4. Provide the history implementation to use. We are using the hash history for simplicity here.
     history: VueRouter.createWebHashHistory(),
     routes, // short for `routes: routes`
-  })
-
+})
 let app = createApp(App);
 app.use(router);
-
 app.mount('#app');

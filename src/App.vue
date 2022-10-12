@@ -1,12 +1,11 @@
 <template>
-    <tabs :links="$router.getRoutes()" :current="$route.path"></tabs>
+    <tabs :links="namedRoutes" :current="$route.path"></tabs>
     <div class="container">
         <section class="section">
             <router-view></router-view>
         </section>
     </div>
 </template>
-
 <script>
 import Tabs from './components/Tabs.vue'
 export default {
@@ -21,6 +20,5 @@ export default {
     }
 }
 </script>
-
 <style>
 </style>

@@ -11,11 +11,12 @@
                 </div>
             </div>
         </div>
-    <div class="columns is-multiline">
+    <div class="columns is-multiline" v-if="countries">
         <div v-for="country in sortedCountries" :key="country.ID" class="column is-one-quarter">
             <country-card :country="country"></country-card>
         </div>
     </div>
+    <h1 v-if="message">{{message}}</h1>
 </template>
 
 <script>
@@ -27,12 +28,14 @@ export default {
         axios.get('https://api.covid19api.com/summary').then(response => {
             console.log(response.data);
             this.countries = response.data.Countries;
+            this.message = response.data.Message;
         });
     },
     data(){
         return {
             countries: [],
             search: '',
+            message: '',
             sortOptions: [
                 {name: 'Name Asc', field: 'Country', order: 'asc'},
                 {name: 'New Confirmed Asc', field: 'NewConfirmed', order: 'asc'},

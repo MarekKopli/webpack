@@ -1,52 +1,43 @@
 <template>
-    <canvas ref="myCanvas" width="600" height="300"></canvas>
+    <button class="button is-primary" @click="activeField='Confirmed'">Confirmed</button>
+    <button class="button is-primary" @click="activeField='Deaths'">Deaths</button>
+    <button class="button is-primary" @click="activeField='Active'">Active</button>
+    <chart :labels="labels" :data="confirmed"></chart>
 </template>
 
 <script>
 import axios from 'axios';
-import Chart from 'chart.js/auto';
+import Chart from '../components/Chart.vue';
+
 export default {
-        mounted(){
-        let canvas = this.$refs['myCanvas'];
-        console.log(canvas);
-        const myChart = new Chart(canvas, {
-    type: 'line',
-    data: {
-        labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
-        datasets: [{
-            label: '# of Votes',
-            data: [12, 19, 3, 5, 2, 3],
-            backgroundColor: [
-                'rgba(255, 99, 132, 0.2)',
-                'rgba(54, 162, 235, 0.2)',
-                'rgba(255, 206, 86, 0.2)',
-                'rgba(75, 192, 192, 0.2)',
-                'rgba(153, 102, 255, 0.2)',
-                'rgba(255, 159, 64, 0.2)'
-            ],
-            borderColor: [
-                'rgba(255, 99, 132, 1)',
-                'rgba(54, 162, 235, 1)',
-                'rgba(255, 206, 86, 1)',
-                'rgba(75, 192, 192, 1)',
-                'rgba(153, 102, 255, 1)',
-                'rgba(255, 159, 64, 1)'
-            ],
-            borderWidth: 1
-        }]
+  components: { Chart },
+    created(){
+        axios.get('https://api.covid19api.com/dayone/country/' + this.$route.params.country).then(response => {
+            console.log(response.data);
+            this.dataset = response.data;
+        });
     },
-    options: {
-        scales: {
-            y: {
-                beginAtZero: true
-            }
+    data(){
+        return {
+            dataset: [],
+            activeField: 'Confirmed',
+        }
+    },
+    computed: {
+        labels(){
+            let nth = Math.floor(this.dataset.length/50);
+            return this.dataset.map(data => data.Date).filter((data, key) => key%nth === 0);
+        },
+        confirmed(){
+            let nth = Math.floor(this.dataset.length/50);
+            return this.dataset.map(data => data[this.activeField]).filter((data, key) => key%nth === 0);
         }
     }
-});
-    }
-  }
+}
 </script>
 
 <style>
+
+
 
 </style>
