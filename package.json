@@ -20,6 +20,7 @@
     },
     "homepage": "https://github.com/Taaniel-Ztan/learnWebPack.git#readme",
     "dependencies": {
+        "@googlemaps/js-api-loader": "^1.14.3",
         "axios": "^0.27.2",
         "chart.js": "^3.9.1",
         "twig-loader": "^0.5.5",
