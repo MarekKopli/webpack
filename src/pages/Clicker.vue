@@ -22,7 +22,9 @@
             <br>
             <br>
             <button @click="upgrade(1000, 100000)" class="button is-white" :disabled="clicks<100000">Buy 1000 cps for 100000 clicks</button> 
-
+            <br>
+            <br>
+            <button @click="upgrade(10000, 1000000)" class="button is-white" :disabled="clicks<1000000">saada rakkett teele</button>
         </div>
     </div>
   
