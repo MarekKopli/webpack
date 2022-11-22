@@ -1,14 +1,15 @@
 <template>
+<div id = "space"></div>
     <div class="columns">
-        <div class="column is-one-third has-text-centered">
+        <div class="column is-half has-text-centered">
             <h1><b>Click to support Ukraine</b></h1>
             <b>{{clicks}} clicks</b>  
             <br>
             <b>{{cps}} clicks per second</b>  
             <img @click="clickClick()" :class="{'click': clickClass}" src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/49/Flag_of_Ukraine.svg/800px-Flag_of_Ukraine.svg.png">   
         </div>
-        <div class="column">
-            <button @click="upgrade(0.1, 10)" class="button is-white" :disabled="clicks<10">Buy 0.1 cps for 10 clicks</button>     
+        <div class="column1">
+            <button @click="upgrade(0.1, 10)" class="button is-white" :disabled="clicks<10" >Buy 0.1 cps for 10 clicks</button>     
             <br>
             <br>
             <button @click="upgrade(1, 100)" class="button is-white" :disabled="clicks<100">Buy 1 cps for 100 clicks</button> 
@@ -63,11 +64,43 @@ export default {
 
 }
 
+window.onload = function () {
+        var name = prompt("Mis su nimi on");
+        
+        var space = document.getElementById("space");
+        
+        space.innerHTML = name + " klikib selleks, et toetada Ukrainat";
+}
 
 </script>
 
 <style scoped>
+    .button {
+        color: rgb(255, 0, 0);
+        background-color: rgb(19, 102, 23);
+
+    }
+    .column1 {
+        position: absolute;
+        left: 90%;
+        top: 250px;
+        scale: 150%;
+    }
     img.click {
         transform: scale(0.9);
+        transition: 0.5s;
     }
+    #space {
+    position: absolute;
+    left: 10%;
+    top: 105%;
+    text-align:center;
+    font-size: 30px;
+    border:5px solid;
+    border-radius:10px;
+    background-color: rgb(31, 51, 1);
+    color: white;
+    width:389px;
+    height:150px;
+}
 </style>
